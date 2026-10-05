@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The agent can only leak what the prompt carries</title>
+<style>
+body{font-family:Georgia,serif;max-width:660px;margin:2rem auto;padding:0 1rem;line-height:1.6;color:#22201c;background:#fbfaf7}
+h1{font-size:1.55rem;line-height:1.3}
+p{margin:0 0 1.05em}
+a{color:#7a4a12}
+footer{margin-top:2rem;font-size:.85rem;color:#777}
+</style>
+</head>
+<body>
+<h1>The agent can only leak what the prompt carries</h1>
+
+<p>A support copilot drafts replies from the full customer record because the record is one API call away. The full record runs 4,000 tokens. The slice a reply actually needs, the ticket text plus the current order, runs 500. At $3 per million input tokens the difference is 1.05 cents per call. Across 300 calls a day, the prompt carrying the full record bills $3.60 and the prompt carrying the slice bills $0.45, which is $1,314.00 a year against $164.25.</p>
+
+<p>The carrying cost is the smaller half. Everything the prompt carries is everything the agent can hand out. Transcripts are shared by link, pasted into other tools, and read by whoever holds the URL. An agent holding the full record that gets asked to repeat a customer's details emits up to 4,000 tokens of personal data. The agent holding the slice tops out at 500. 87.5 percent of the record never enters the conversation, so it cannot leave it.</p>
+
+<p>The floor matters most when the ask scales. One prompt requesting everything on file for 200 customers pulls 800,000 tokens of names, addresses, and order history out of an agent carrying full records. The same prompt against scoped context returns 100,000 tokens, and most of that is ticket text. The control that caps the number is not a policy line and not an output filter. It is how much context the agent was granted at call time.</p>
+
+<p>Scoping is not free, which is why it gets skipped. Resolving the slice costs a second retrieval call on about 10 percent of conversations: 30 extra calls a day at 300 tokens, 2.7 cents a day, $9.86 a year. Against $1,149.75 in context that never gets carried, the retrieval step pays for itself 116 times over before a single avoided incident is counted. What remains is 12.5 percent of the old surface, and a redaction pass over the ticket text shrinks that again to the fields a reply cannot do without.</p>
+
+<p>An agent with the full record on file is not a smarter assistant. It is the same assistant with 8 times the blast radius and an input bill 8 times larger. Least privilege reads like a security habit, but on an invoice it is a discount the account team forgot to turn on.</p>
+
+<footer>The data leak ledger sits with <a href="https://pastagi.com/">the guides and audits</a> at <a href="https://pastagi.com/">PastAGI</a>.</footer>
+</body>
+</html>
